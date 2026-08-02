@@ -8,4 +8,14 @@ class AppImagesRoute {
 
   //  AppBar Logo
   static const String appBarLogo = "assets/images/AppBarLogo.png";
+
+  //  nav icons
+  static const String quranIcon = "assets/images/Quran_ic.png";
+  static const String hadithIcon = "assets/images/Hadith_ic.png";
+  static const String sebihaIcon = "assets/images/sebiha_ic.png";
+  static const String radioIcon = "assets/images/radio_ic.png";
+  static const String timeIcon = "assets/images/Time_ic.png";
+
+  //  main background
+  static const String mainBack = "assets/images/Main Background.png";
 }
