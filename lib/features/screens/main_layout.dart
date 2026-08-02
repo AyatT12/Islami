@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/utils/app_colors.dart';
 import 'package:islami/core/utils/app_images.dart';
+import 'package:islami/core/utils/app_text_styles.dart';
 import 'package:islami/features/models/tab_info.dart';
+import 'package:islami/features/tabs/hadith_tab/hadith_tab_content.dart';
+import 'package:islami/features/tabs/quran_tab/quran_tab_content.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -12,38 +15,44 @@ class MainLayout extends StatefulWidget {
 
 class _MainLayoutState extends State<MainLayout> {
   int currentPage = 0;
-  final List<TabInfo> _tabs = [
-    TabInfo(
-      iconPath: AppImagesRoute.quranIcon,
-      backgroundImage: AppImagesRoute.mainBack,
-      label: "Quran",
-      content: Container(),
-    ),
-    TabInfo(
-      iconPath: AppImagesRoute.hadithIcon,
-      backgroundImage: AppImagesRoute.mainBack,
-      label: "Hadith",
-      content: Container(),
-    ),
-    TabInfo(
-      iconPath: AppImagesRoute.sebihaIcon,
-      backgroundImage: AppImagesRoute.mainBack,
-      label: "Sebiha",
-      content: Container(),
-    ),
-    TabInfo(
-      iconPath: AppImagesRoute.radioIcon,
-      backgroundImage: AppImagesRoute.mainBack,
-      label: "Radio",
-      content: Container(),
-    ),
-    TabInfo(
-      iconPath: AppImagesRoute.timeIcon,
-      backgroundImage: AppImagesRoute.mainBack,
-      label: "Time",
-      content: Container(),
-    ),
-  ];
+  late final List<TabInfo> _tabs;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabs = [
+      TabInfo(
+        iconPath: AppImagesRoute.quranIcon,
+        backgroundImage: AppImagesRoute.mainBack,
+        label: "Quran",
+        content: const QuranTabContent(),
+      ),
+      TabInfo(
+        iconPath: AppImagesRoute.hadithIcon,
+        backgroundImage: AppImagesRoute.hadithBackground,
+        label: "Hadith",
+        content: const HadithTabContent(),
+      ),
+      TabInfo(
+        iconPath: AppImagesRoute.sebihaIcon,
+        backgroundImage: AppImagesRoute.mainBack,
+        label: "Sebiha",
+        content: Center(child: Text("Sebiha", style: AppTextStyles.bold24)),
+      ),
+      TabInfo(
+        iconPath: AppImagesRoute.radioIcon,
+        backgroundImage: AppImagesRoute.mainBack,
+        label: "Radio",
+        content: Center(child: Text("Radio", style: AppTextStyles.bold24)),
+      ),
+      TabInfo(
+        iconPath: AppImagesRoute.timeIcon,
+        backgroundImage: AppImagesRoute.mainBack,
+        label: "Time",
+        content: Center(child: Text("Time", style: AppTextStyles.bold24)),
+      ),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +67,7 @@ class _MainLayoutState extends State<MainLayout> {
         backgroundColor: AppColors.primaryColor,
         indicatorColor: AppColors.darkBrown.withValues(alpha: .6),
         labelTextStyle: WidgetStatePropertyAll(
-          TextStyle(color: AppColors.white),
+          AppTextStyles.bold14.copyWith(color: AppColors.white),
         ),
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         destinations: List.generate(
@@ -72,6 +81,17 @@ class _MainLayoutState extends State<MainLayout> {
             ),
           ),
         ),
+      ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(_tabs[currentPage].backgroundImage),
+            fit: BoxFit.fill,
+          ),
+        ),
+        child: SafeArea(child: _tabs[currentPage].content),
       ),
     );
   }
