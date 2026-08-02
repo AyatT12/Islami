@@ -49,13 +49,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Image.asset(page.image, height: 280),
-
                         const SizedBox(height: 40),
-
                         Text(page.title, style: AppTextStyles.bold24),
-
                         const SizedBox(height: 20),
-
                         Text(
                           page.subtitle,
                           textAlign: TextAlign.center,
@@ -67,7 +63,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 },
               ),
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
@@ -86,9 +81,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
             ),
-
             const SizedBox(height: 30),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Row(
@@ -108,11 +101,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           curve: Curves.ease,
                         );
                       },
-                      child: const Text("Back"),
+                      child: Text("Back", style: AppTextStyles.bold16),
                     ),
-
                   const Spacer(),
-
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.secondaryColor,
@@ -138,12 +129,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       currentPage == onboardingPages.length - 1
                           ? "Finish"
                           : "Next",
+                      style: AppTextStyles.bold16,
                     ),
                   ),
                 ],
               ),
             ),
-
             const SizedBox(height: 30),
           ],
         ),
