@@ -25,4 +25,9 @@ class AppImagesRoute {
   static const String searchInputIcon = "assets/images/SearchInputIcon.png";
   static const String hadithBackground = "assets/images/Hadith Background.png";
   static const String hadithCardBack = "assets/images/hadithCardBack.png";
+
+  // Sebiha background
+  static const String sebihaBack = "assets/images/Sebiha_Background.png";
+//   sebiha image
+  static const String sebiha = "assets/images/Sebha.png";
 }

@@ -5,6 +5,7 @@ import 'package:islami/core/utils/app_text_styles.dart';
 import 'package:islami/features/models/tab_info.dart';
 import 'package:islami/features/tabs/hadith_tab/hadith_tab_content.dart';
 import 'package:islami/features/tabs/quran_tab/quran_tab_content.dart';
+import 'package:islami/features/tabs/sebiha_tab.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -35,9 +36,9 @@ class _MainLayoutState extends State<MainLayout> {
       ),
       TabInfo(
         iconPath: AppImagesRoute.sebihaIcon,
-        backgroundImage: AppImagesRoute.mainBack,
+        backgroundImage: AppImagesRoute.sebihaBack,
         label: "Sebiha",
-        content: Center(child: Text("Sebiha", style: AppTextStyles.bold24)),
+        content: const SebihaTabContent(),
       ),
       TabInfo(
         iconPath: AppImagesRoute.radioIcon,
