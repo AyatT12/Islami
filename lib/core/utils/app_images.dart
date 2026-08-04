@@ -30,4 +30,8 @@ class AppImagesRoute {
   static const String sebihaBack = "assets/images/Sebiha_Background.png";
 //   sebiha image
   static const String sebiha = "assets/images/Sebha.png";
+
+//   radio image
+  static const String radioCard = "assets/images/Mask group.png";
+  static const String radioCardActive = "assets/images/Sound_on.png";
 }

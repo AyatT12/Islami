@@ -5,7 +5,8 @@ import 'package:islami/core/utils/app_text_styles.dart';
 import 'package:islami/features/models/tab_info.dart';
 import 'package:islami/features/tabs/hadith_tab/hadith_tab_content.dart';
 import 'package:islami/features/tabs/quran_tab/quran_tab_content.dart';
-import 'package:islami/features/tabs/sebiha_tab.dart';
+import 'package:islami/features/tabs/radio_tab/radio_tab_content.dart';
+import 'package:islami/features/tabs/sebiha_tab/sebiha_tab.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -44,7 +45,7 @@ class _MainLayoutState extends State<MainLayout> {
         iconPath: AppImagesRoute.radioIcon,
         backgroundImage: AppImagesRoute.mainBack,
         label: "Radio",
-        content: Center(child: Text("Radio", style: AppTextStyles.bold24)),
+        content: const RadioTabContent(),
       ),
       TabInfo(
         iconPath: AppImagesRoute.timeIcon,
